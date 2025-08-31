@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "story": "some-command-here",
+    "story": "storybook dev -p 6006",
     "test": "vitest"
   },
   "dependencies": {
