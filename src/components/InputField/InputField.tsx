@@ -120,27 +120,21 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
           />
 
           {/* Right-side controls */}
-          <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center gap-1">
+          <div className="absolute inset-y-0 right-2 flex items-center gap-1">
             {loading && (
               <span
                 aria-hidden
                 className="pointer-events-none inline-block animate-spin h-4 w-4 border-2 border-gray-300 border-t-transparent rounded-full"
               />
             )}
-          </div>
 
-          {/* Clickable controls (clear/password) overlayed but interactive */}
-          <div className="absolute inset-y-0 right-2 flex items-center gap-1">
             {clearable && value && !disabled && (
               <button
                 type="button"
                 aria-label="Clear input"
-                onClick={(e) => {
-                  // Fire a synthetic event with empty value if onChange provided
+                onClick={() => {
                   if (onChange) {
-                    const target = e.target as HTMLButtonElement;
                     const event = {
-                      ...e,
                       target: { value: "" },
                     } as unknown as React.ChangeEvent<HTMLInputElement>;
                     onChange(event);
@@ -151,6 +145,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
                 ✕
               </button>
             )}
+
             {passwordToggle && type === "password" && (
               <button
                 type="button"

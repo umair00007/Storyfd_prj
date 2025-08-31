@@ -179,6 +179,3 @@ export function DataTable<T extends Record<string, any>>({
     </div>
   );
 }
-
-// Explicitly export the type for story imports
-export type { DataTableProps };
